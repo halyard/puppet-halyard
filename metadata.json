@@ -1,0 +1,22 @@
+{
+  "name": "halyard-halyard",
+  "version": "0.0.1",
+  "author": "Les Aker",
+  "summary": "Core helpers and definitions for Macs",
+  "license": "MIT",
+  "source": "https://github.com/halyard/puppet-halyard",
+  "project_page": "https://github.com/halyard/puppet-halyard",
+  "issues_url": "https://github.com/halyard/puppet-halyard/issues",
+  "dependencies": [
+
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Darwin",
+      "operatingsystemmajrelease": [
+        "14",
+        "15"
+      ]
+    }
+  ]
+}

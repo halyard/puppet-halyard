@@ -22,7 +22,7 @@ class halyard (
 
   file { '/usr/local/bin/halyard':
     ensure  => present,
-    content => epp('halyard/sudo_halyard.epp', { 'repo_path' => $repo_path })
+    content => epp('halyard/sudo_halyard.epp', { 'repo_path' => $repo_path }),
     owner   => 'root',
     group   => 'wheel',
     mode    => '0755'

@@ -31,10 +31,11 @@ class halyard (
   include sudoers
 
   sudoers::allowed_command{ 'halyard_puppet':
-    command          => "${bin_path}/puppet",
-    user             => $facts['id'],
-    require_password => false,
-    comment          => 'Allows halyard user to run puppet',
-    require_exist    => false
+    command               => "${bin_path}/puppet",
+    user                  => $facts['id'],
+    require_password      => false,
+    comment               => 'Allows halyard user to run puppet',
+    require_exist         => false,
+    allowed_env_variables => 'GEM_PATH'
   }
 }

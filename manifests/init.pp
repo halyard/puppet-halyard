@@ -10,12 +10,17 @@
 #
 
 class halyard (
-  $bin_path = '/usr/local/bin'
 ) {
-  $halyard_path = '/opt/halyard/repo'
+  file { '/usr/local/bin':
+    ensure => directory,
+    user   => 'root',
+    group  => 'wheel'
+  }
 
-  file { "${bin_path}/halyard":
+  file { '/usr/local/bin/halyard':
     ensure => link,
-    target => "${halyard_path}/meta/halyard"
+    target => '/opt/halyard/repo/meta/halyard',
+    user   => 'root',
+    group  => 'wheel'
   }
 }

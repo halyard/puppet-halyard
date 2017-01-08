@@ -21,11 +21,11 @@ class halyard (
   }
 
   file { '/usr/local/bin/halyard':
-    ensure => present,
-    source => 'puppet:///modules/halyard/sudo_halyard'
-    owner  => 'root',
-    group  => 'wheel',
-    mode   => '0755'
+    ensure  => present,
+    content => epp('halyard/sudo_halyard.epp', { 'repo_path' => $repo_path })
+    owner   => 'root',
+    group   => 'wheel',
+    mode    => '0755'
   }
 
   sudoers::allowed_command{ 'halyard_puppet':

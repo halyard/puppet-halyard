@@ -13,7 +13,6 @@ class halyard (
 ) {
   $root_path = '/opt/halyard'
   $repo_path = "${root_path}/repo"
-  $bin_path = "${root_path}/vendor/bin"
 
   file { '/usr/local/bin':
     ensure => directory,
@@ -22,20 +21,18 @@ class halyard (
   }
 
   file { '/usr/local/bin/halyard':
-    ensure => link,
-    target => "${repo_path}/meta/halyard",
+    ensure => present,
+    source => 'puppet:///modules/halyard/sudo_halyard'
     owner  => 'root',
-    group  => 'wheel'
+    group  => 'wheel',
+    mode   => '0755'
   }
 
-  include sudoers
-
   sudoers::allowed_command{ 'halyard_puppet':
-    command               => "${bin_path}/puppet",
+    command               => "${repo_path}/meta/halyard",
     user                  => $facts['id'],
     require_password      => false,
     comment               => 'Allows halyard user to run puppet',
-    require_exist         => false,
-    allowed_env_variables => ['GEM_PATH']
+    require_exist         => false
   }
 }

@@ -21,7 +21,7 @@ class halyard (
   }
 
   file { '/usr/local/bin/halyard':
-    ensure  => present,
+    ensure  => file,
     content => epp('halyard/sudo_halyard.epp', { 'repo_path' => $repo_path }),
     owner   => 'root',
     group   => 'wheel',

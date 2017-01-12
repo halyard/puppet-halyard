@@ -10,7 +10,7 @@
   "dependencies": [
     {
       "name": "halyard/sudoers",
-      "version_requirement": "0.1.x"
+      "version_requirement": "0.2.x"
     }
   ],
   "operatingsystem_support": [

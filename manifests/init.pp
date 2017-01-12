@@ -29,10 +29,11 @@ class halyard (
   }
 
   sudoers::allowed_command{ 'halyard_puppet':
-    command          => "${repo_path}/meta/halyard",
-    user             => $facts['id'],
-    require_password => false,
-    comment          => 'Allows halyard user to run puppet',
-    require_exist    => false
+    command               => "${repo_path}/meta/halyard",
+    user                  => $facts['id'],
+    require_password      => false,
+    comment               => 'Allows halyard user to run puppet',
+    require_exist         => false,
+    allowed_env_variables => ['DEBUG', 'PUPPET_ENV']
   }
 }

@@ -34,7 +34,7 @@ class halyard (
     require_password      => false,
     comment               => 'Allows halyard user to run puppet',
     require_exist         => false,
-    allowed_env_variables => ['DEBUG', 'PUPPET_ENV'],
+    allowed_env_variables => ['DEBUG', 'PUPPET_ENV', 'PROFILE'],
     defaults              => ['secure_path = /sbin:/bin:/usr/sbin:/usr/bin']
   }
 }

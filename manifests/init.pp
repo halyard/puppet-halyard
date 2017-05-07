@@ -28,8 +28,13 @@ class halyard (
     mode    => '0755'
   }
 
+  $commands = [
+    "${repo_path}/meta/halyard",
+    "/bin/sh -c ${repo_path}/meta/halyard"
+  ]
+
   sudoers::allowed_command{ 'halyard_puppet':
-    command               => "${repo_path}/meta/halyard",
+    command               => join($commands, ','),
     user                  => $facts['id'],
     require_password      => false,
     comment               => 'Allows halyard user to run puppet',

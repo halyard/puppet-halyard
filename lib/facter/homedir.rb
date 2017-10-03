@@ -2,6 +2,8 @@ require 'etc'
 
 Facter.add(:homedirs) do
   setcode do
-    Etc.passwd { |u| [u.name, u.dir] }.to_h
+    Etc::Passwd.each_with_object({}) do |user, obj|
+      [user.uid, user.name].each { |key| obj[key] = user.dir }
+    end
   end
 end

@@ -13,7 +13,7 @@ Blacksmith::RakeTask.new do |t|
 end
 
 desc 'Release a new version of the puppet module'
-deps = %w(clean test build tag push bump_commit).map { |x| 'module:' + x }
+deps = %i[module:clean test build module:tag module:push module:bump_commit]
 task :release => deps do
   puts 'Pushing to remote git repo'
   Blacksmith::Git.new.push!
@@ -25,3 +25,6 @@ task test: [
   :syntax,
   :lint
 ]
+
+Rake::Task[:default].clear
+task default: [:test]

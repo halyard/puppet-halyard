@@ -1,5 +1,5 @@
 <%- | String $repo_path | -%>
 #!/usr/bin/env bash
 
-sudo -i <%= $repo_path %>/meta/halyard
+sudo -i <%= $repo_path %>/meta/puppet-run
 

@@ -10,6 +10,7 @@
 #
 
 class halyard (
+  Array[String] $allowed_env_variables = ['DEBUG', 'PUPPET_ENV', 'PROFILE']
 ) {
   $root_path = '/opt/halyard'
   $repo_path = "${root_path}/repo"
@@ -39,7 +40,7 @@ class halyard (
     require_password      => false,
     comment               => 'Allows halyard user to run puppet',
     require_exist         => false,
-    allowed_env_variables => ['DEBUG', 'PUPPET_ENV', 'PROFILE'],
+    allowed_env_variables => $allowed_env_variables,
     defaults              => ['secure_path = /sbin:/bin:/usr/sbin:/usr/bin']
   }
 }

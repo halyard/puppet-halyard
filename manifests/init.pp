@@ -29,8 +29,8 @@ class halyard (
   }
 
   $commands = [
-    "${repo_path}/meta/halyard",
-    "/bin/sh -c ${repo_path}/meta/halyard"
+    "${repo_path}/meta/puppet-run",
+    "/bin/sh -c ${repo_path}/meta/puppet-run"
   ]
 
   sudoers::allowed_command{ 'halyard_puppet':

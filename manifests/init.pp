@@ -42,4 +42,14 @@ class halyard (
     allowed_env_variables => ['DEBUG', 'PUPPET_ENV', 'PROFILE'],
     defaults              => ['secure_path = /sbin:/bin:/usr/sbin:/usr/bin']
   }
+
+  $puppet_launchd_jobs = [
+    "/Library/LaunchDaemons/com.puppetlabs.pxp-agent.plist",
+    "/Library/LaunchDaemons/com.puppetlabs.puppet.plist",
+    /Library/LaunchDaemons/com.puppetlabs.mcollective.plist"
+  ]
+
+  file { $puppet_launchd_jobs:
+    ensure => absent
+  }
 }

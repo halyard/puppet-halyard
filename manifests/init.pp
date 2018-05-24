@@ -44,9 +44,9 @@ class halyard (
   }
 
   $puppet_launchd_jobs = [
-    "/Library/LaunchDaemons/com.puppetlabs.pxp-agent.plist",
-    "/Library/LaunchDaemons/com.puppetlabs.puppet.plist",
-    "/Library/LaunchDaemons/com.puppetlabs.mcollective.plist"
+    '/Library/LaunchDaemons/com.puppetlabs.pxp-agent.plist',
+    '/Library/LaunchDaemons/com.puppetlabs.puppet.plist',
+    '/Library/LaunchDaemons/com.puppetlabs.mcollective.plist'
   ]
 
   file { $puppet_launchd_jobs:

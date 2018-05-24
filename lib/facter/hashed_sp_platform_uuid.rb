@@ -1,3 +1,5 @@
+require 'digest'
+
 Facter.add('hashed_sp_platform_uuid') do
     has_weight 10
     setcode do
